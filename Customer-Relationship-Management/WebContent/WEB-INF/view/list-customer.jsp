@@ -25,8 +25,11 @@
 	<div id="container">
 
 		<div id="content">
+		
+			<!-- Add customer Button -->
 			<input class="add-button" type="button" value="Add Customer"
 				onClick="window.location.href='showFormForAdd' ; return false" />
+
 			<!--  add our html table here -->
 			<table>
 				<tr>
@@ -42,11 +45,16 @@
 
 				<!-- loop over and print our customers -->
 				<c:forEach var="tempCustomer" items="${customers}">
+
 					<!-- construct the update link with customer id -->
 					<c:url var="updateLink" value="/customer/showFormForUpdate">
 						<c:param name="customerId" value="${tempCustomer.id}" />
 					</c:url>
 
+					<!-- construct the delete link with customer id -->
+					<c:url var="deleteLink" value="/customer/deleteCustomer">
+						<c:param name="customerId" value="${tempCustomer.id}" />
+					</c:url>
 					<tr>
 
 						<td>${tempCustomer.firstName}</td>
@@ -54,7 +62,8 @@
 						<td>${tempCustomer.mobileNumber}</td>
 						<td>${tempCustomer.email}</td>
 						<td>${tempCustomer.id}</td>
-						<td><a href="${updateLink}">Update</a> | <td><a href="${deleteLink}">Delete</a></td></td>
+						<td><a href="${updateLink}">Update</a>|<a
+							href="${deleteLink}">Delete</a></td>
 					</tr>
 
 				</c:forEach>

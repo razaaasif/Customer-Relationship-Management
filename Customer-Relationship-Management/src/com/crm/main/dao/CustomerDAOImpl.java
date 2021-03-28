@@ -1,13 +1,12 @@
 package com.crm.main.dao;
 
-import java.util.List; 
+import java.util.List;  
 
 
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.hibernate.query.criteria.internal.predicate.IsEmptyPredicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -47,6 +46,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 		Session session = sessionFactory.getCurrentSession();
 		Customer customer = session.get(Customer.class, theId);
 		return customer;
+	}
+
+	@Override
+	public void deleteCustomer(int theId) {
+		Session session=sessionFactory.getCurrentSession();
+		Customer customer =session.get(Customer.class, theId);
+		session.delete(customer);
 	}
 
 }
