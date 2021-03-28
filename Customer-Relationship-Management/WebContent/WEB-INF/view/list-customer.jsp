@@ -30,20 +30,31 @@
 			<!--  add our html table here -->
 			<table>
 				<tr>
+
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Mobile Number</th>
 					<th>Email</th>
+					<th>Customer Id</th>
+					<th>Action</th>
+
 				</tr>
 
 				<!-- loop over and print our customers -->
 				<c:forEach var="tempCustomer" items="${customers}">
+					<!-- construct the update link with customer id -->
+					<c:url var="updateLink" value="/customer/showFormForUpdate">
+						<c:param name="customerId" value="${tempCustomer.id}" />
+					</c:url>
 
 					<tr>
+
 						<td>${tempCustomer.firstName}</td>
 						<td>${tempCustomer.lastName}</td>
 						<td>${tempCustomer.mobileNumber}</td>
 						<td>${tempCustomer.email}</td>
+						<td>${tempCustomer.id}</td>
+						<td><a href="${updateLink}">Update</a> | <td><a href="${deleteLink}">Delete</a></td></td>
 					</tr>
 
 				</c:forEach>

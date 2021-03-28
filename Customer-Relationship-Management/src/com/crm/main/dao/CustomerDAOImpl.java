@@ -7,6 +7,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.hibernate.query.criteria.internal.predicate.IsEmptyPredicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -38,8 +39,14 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public void saveCustomer(Customer theCustomer) {
 		Session session = sessionFactory.getCurrentSession();
-		session.save(theCustomer);
-		
+		session.saveOrUpdate(theCustomer);
+	}
+
+	@Override
+	public Customer getCustomer(int theId) {
+		Session session = sessionFactory.getCurrentSession();
+		Customer customer = session.get(Customer.class, theId);
+		return customer;
 	}
 
 }
