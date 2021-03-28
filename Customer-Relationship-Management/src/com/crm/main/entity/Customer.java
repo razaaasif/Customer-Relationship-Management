@@ -1,11 +1,15 @@
 package com.crm.main.entity;
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
+
+
 
 @Entity
 @Table(name="customer")
@@ -21,8 +25,10 @@ public class Customer {
 	@Column(name="last_name")
 	private String lastName;
 	
+	
+	@Pattern(regexp="^[a-zA-Z0-9]{10}")
 	@Column(name="mobile_number")
-	private int mobileNumber;
+	private String mobileNumber;
 	
 	@Column(name="email")
 	private String email;
@@ -55,11 +61,13 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-	public int getMobileNumber() {
+	
+
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(int mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 

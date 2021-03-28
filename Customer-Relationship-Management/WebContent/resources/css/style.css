@@ -4,6 +4,11 @@ html, body{
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 }
 
+.action-button{
+	margin:150px;
+	padding-left: 100px;
+}
+
 table {   
 	border-collapse:collapse;
 	border-bottom:1px solid gray;
@@ -43,5 +48,5 @@ tr:nth-child(odd) {background: #BBBBBB}
 	padding: 5px 10px; 
 	
 	margin-bottom: 15px;
-	background: #cccccc;
+	background: rgb(0, 255, 0);
 }
