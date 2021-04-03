@@ -67,4 +67,11 @@ public class CustomerController {
 		
 		return "redirect:/customer/list";
 	}
+	
+	
+	@GetMapping("/contact")
+	public String Contact() {
+		return "contact-us";
+		
+	}
 }
